@@ -2,12 +2,10 @@ package merwyn.starwarsdice;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
@@ -85,6 +83,26 @@ public class SelectDice extends Activity {
     }
 
     private void throwDice(){
+//        showMessage();
+        Intent i = new Intent(getApplicationContext(), DisplayResult.class);
+        startActivity(i);
+
+        // met en forme et envoie les info du nombre de des a l'ecran de resultat
+        int dices[];
+        dices = new int [6];
+        dices[0] = nps.get(0).getValue();
+        dices[1] = nps.get(1).getValue();
+        dices[2] = nps.get(2).getValue();
+        dices[3] = nps.get(3).getValue();
+        dices[4] = nps.get(4).getValue();
+        dices[5] = nps.get(5).getValue();
+
+        i.putExtra("dices",dices);
+        startActivity(i);
+
+    }
+
+    private void showMessage() {
         StringBuilder message = new StringBuilder();
         message.append("Dès selectionnée : \n");
         message.append(nps.get(0).getValue());
@@ -101,6 +119,7 @@ public class SelectDice extends Activity {
         message.append("  défi");
         toast.setText(message.toString());
         toast.show();
+
     }
 
 

@@ -11,4 +11,7 @@
     <string name="d12_bad">Défi</string>
     <string name="go">Go !</string>
     <string name="raz">RAZ</string>
+    <string name="reset">Refaire</string>
+
+    <string name="title_activity_display_result">DisplayResult</string>
 </resources>
