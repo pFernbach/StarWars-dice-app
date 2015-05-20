@@ -46,6 +46,7 @@ public class SelectDice extends Activity {
             np.setMinValue(0);
             np.setMaxValue(9);
             np.setWrapSelectorWheel(false);
+
         }
 
 
