@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Random;
@@ -31,6 +32,7 @@ public class DisplayResult extends Activity {
         Log.i("DisplayResult","constructor");
         showNumberDice();
         throwDices();
+        displayRez();
         View.OnClickListener onClickLister = new View. OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,7 +44,45 @@ public class DisplayResult extends Activity {
         reset.setOnClickListener(onClickLister);
         return;
     }
-// throw dice depending on number of dice selected, and display it
+
+    private void displayRez() {
+
+        TextView t6 =  (TextView) findViewById(R.id.T6);
+        TextView t8 =  (TextView) findViewById(R.id.T8);
+        TextView t12 =  (TextView) findViewById(R.id.T12);
+
+        int r6 = results[0]-results[3]; // > 0 -> avantage
+        int r8 = results[1]-results[4]; // > 0 -> avantage
+        int r12 = results[2]-results[5]; // > 0 -> avantage
+
+        if(r12 > 0){
+            t12.setText("Triomphe !!! ("+r12+")");
+            t12.setTextColor(getResources().getColor(R.color.c12_good));
+        }else if (r12 < 0){
+            t12.setText("Désastre ... ("+(-r12)+")");
+            t12.setTextColor(getResources().getColor(R.color.c12_bad));
+        }
+
+        if(r8 > 0){
+            t8.setText("Succès !  ("+r8+")");
+            t8.setTextColor(getResources().getColor(R.color.c8_good));
+        }else{
+            t8.setText("Echec.  ("+(-r8)+")");
+            t8.setTextColor(getResources().getColor(R.color.c8_bad));
+        }
+
+        if(r6 > 0){
+            t6.setText("Avec "+r6+" avantages.");
+            t6.setTextColor(getResources().getColor(R.color.c6_good));
+        }else if (r6<0){
+            t6.setText("Avec "+(-r6)+" menaces.");
+            t6.setTextColor(getResources().getColor(R.color.c6_bad));
+        }
+
+
+    }
+
+    // throw dice depending on number of dice selected, and display it
     private void throwDices() {
         int i;
         for(i=0;i<dices[0];i++) throwD6G();
