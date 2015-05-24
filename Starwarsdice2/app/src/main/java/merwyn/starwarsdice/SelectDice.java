@@ -49,8 +49,6 @@ public class SelectDice extends Activity {
 
         }
 
-
-
         Button btgo = (Button) findViewById(R.id.btgo);
         Button btraz = (Button) findViewById(R.id.btraz);
 
