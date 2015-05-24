@@ -5,8 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
@@ -23,6 +23,7 @@ public class SelectDice extends Activity {
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
     private ShakeDetector mShakeDetector;
+    private MediaPlayer mp;
 
     private Toast toast;
 
@@ -48,6 +49,9 @@ public class SelectDice extends Activity {
             np.setWrapSelectorWheel(false);
 
         }
+
+        mp = MediaPlayer.create(this,R.raw.dice);
+
 
         Button btgo = (Button) findViewById(R.id.btgo);
         Button btraz = (Button) findViewById(R.id.btraz);
@@ -80,6 +84,7 @@ public class SelectDice extends Activity {
             }
         });
 
+
     }
 
     private void throwDice(){
@@ -95,10 +100,9 @@ public class SelectDice extends Activity {
         dices[3] = nps.get(3).getValue();
         dices[4] = nps.get(4).getValue();
         dices[5] = nps.get(5).getValue();
-        Log.i("SelectDices","mid throwdice");
+        mp.start();
         i.putExtra("dices", dices);
         startActivityForResult(i, 1);
-        Log.i("SelectDices","end throwdice");
 
     }
 

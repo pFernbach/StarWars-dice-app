@@ -22,6 +22,7 @@ public class DisplayResult extends Activity {
     private Random genRand;
     private LinearLayout.LayoutParams params;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
