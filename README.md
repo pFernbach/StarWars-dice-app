@@ -12,6 +12,14 @@ TODO list :
 * Compute and display the probability of success for the current die pool.
 
 
+## Installation instructions : 
+
+Download https://github.com/pFernbach/StarWars-dice-app/releases/download/V1.0/starWars_dice.apk
+
+Authorize 'unkown sources' in the security options on your phone
+
+Lauch the .apk
+
 
 
 **I did not not put any ads in this app**. If you find it usefull, feel free to send me a little something (less than the price of the official app in the store !)
